@@ -1,23 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#000000">
-    
+
     <!-- SEO & Hook Copywriting -->
     <title>Lipon Studio | Premium Android Engineering</title>
     <meta name="description" content="Elite Android development studio. We engineer high-performance, privacy-first mobile solutions with technical precision and minimalist design.">
-    
-    <!-- Social Sharing (Open Graph) -->
-    <meta property="og:title" content="Lipon Studio | Precision Built. Performance Driven.">
-    <meta property="og:description" content="Crafting the next generation of high-performance Android applications.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://liponstudio.github.io/">
 
     <!-- Browser Tab Icon (SVG Favicon) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22black%22/><circle cx=%2250%22 cy=%2250%22 r=%2215%22 fill=%22%2300f2ff%22/></svg>">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
@@ -35,8 +30,6 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        html { scroll-behavior: smooth; }
-        
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg);
@@ -44,7 +37,7 @@
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            opacity: 0; /* For entrance animation */
+            opacity: 0;
             animation: pageFadeIn 1s var(--cubic) forwards;
         }
 
@@ -70,7 +63,7 @@
             align-items: center;
             border-bottom: 1px solid var(--border);
         }
-        
+
         .brand {
             display: flex;
             align-items: center;
@@ -145,8 +138,6 @@
             border-radius: 28px;
             padding: 48px;
             transition: all 0.5s var(--cubic);
-            text-decoration: none;
-            color: inherit;
             display: flex;
             flex-direction: column;
         }
@@ -154,7 +145,7 @@
         .app-card:hover {
             background: #0e0e0e;
             border-color: #333;
-            transform: translateY(-8px) scale(1.01);
+            transform: translateY(-8px);
             box-shadow: 0 40px 80px -20px rgba(0,0,0,0.8);
         }
 
@@ -176,6 +167,12 @@
         .app-card h3 { font-family: 'Outfit', sans-serif; font-size: 1.8rem; margin-bottom: 12px; letter-spacing: -0.5px; }
         .app-card p { color: var(--text-dim); font-size: 1rem; line-height: 1.6; margin-bottom: 40px; flex-grow: 1; }
 
+        .btn-group {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
         .app-link {
             font-size: 0.85rem;
             font-weight: 700;
@@ -183,13 +180,24 @@
             align-items: center;
             gap: 10px;
             color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
         }
         .app-link span {
             width: 24px; height: 24px; background: #fff; color: #000; border-radius: 50%;
             display: flex; align-items: center; justify-content: center; font-size: 0.8rem;
             transition: transform 0.3s;
         }
-        .app-card:hover .app-link span { transform: translateX(5px); }
+        .app-link:hover span { transform: translateX(5px); }
+
+        .link-play {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .link-play:hover { color: var(--accent); }
 
         footer {
             padding: 80px 0;
@@ -202,6 +210,7 @@
             .hero { padding: 80px 0; }
             .app-card { padding: 32px; }
             nav { height: 80px; }
+            .btn-group { flex-direction: column; align-items: flex-start; gap: 20px; }
         }
     </style>
 </head>
@@ -225,19 +234,28 @@
 
         <section class="apps-grid">
             <!-- Qode -->
-            <a href="https://play.google.com/store/apps/details?id=com.lipon.qode" class="app-card">
+            <div class="app-card">
                 <div class="app-icon">Q</div>
                 <h3>Qode</h3>
                 <p>The definitive offline master-database for device intelligence and mobile engineering protocols.</p>
-                <div class="app-link">INSTALL ON GOOGLE PLAY <span>→</span></div>
-            </a>
+                <div class="btn-group">
+                    <a href="https://liponstudio.github.io/com.lipon.qode/" class="app-link">
+                        VIEW PROJECT <span>→</span>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.lipon.qode" class="link-play">
+                        GOOGLE PLAY
+                    </a>
+                </div>
+            </div>
 
             <!-- Next Release -->
             <div class="app-card" style="border-style: dashed; opacity: 0.4;">
                 <div class="app-icon" style="background: transparent; border: 1px dashed var(--border);">+</div>
                 <h3>Project Alpha</h3>
                 <p>A new concept in system optimization and productivity. In development for late 2026.</p>
-                <div class="app-link" style="color: #444;">ENGINEERING</div>
+                <div class="btn-group">
+                    <span class="link-play" style="color: #444;">ENGINEERING</span>
+                </div>
             </div>
         </section>
 
