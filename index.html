@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Lipon Studio | Precision-engineered Android applications. High performance, offline reliability, and absolute privacy.">
+    <title>Lipon Studio | Elite Android Ecosystem</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #000000;
+            --surface: #0a0a0a;
+            --primary: #ffffff;
+            --accent: #00f2ff;
+            --text-main: #ffffff;
+            --text-dim: #88888b;
+            --border: rgba(255, 255, 255, 0.06);
+            --cubic: cubic-bezier(0.2, 1, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Ambient Fluid Background */
+        .ambient {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% -20%, #111 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Super Clean Navbar */
+        nav {
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: -0.2px;
+        }
+
+        .brand-icon {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #fff;
+            border-radius: 6px;
+            position: relative;
+        }
+        .brand-icon::after {
+            content: '';
+            position: absolute;
+            width: 6px; height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .nav-cta {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-dim);
+            transition: color 0.3s;
+        }
+        .nav-cta:hover { color: #fff; }
+
+        /* Minimalist Hero */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+            background: linear-gradient(to bottom, #fff 60%, #444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            color: var(--text-dim);
+            max-width: 540px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Smart Responsive Grid */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 16px;
+            margin: 40px 0 100px;
+        }
+
+        .app-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.4s var(--cubic);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-card:hover {
+            background: #111;
+            border-color: #333;
+            transform: translateY(-4px);
+        }
+
+        .app-icon {
+            width: 56px;
+            height: 56px;
+            background: #1a1a1a;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .app-card h3 { font-family: 'Outfit', sans-serif; font-size: 1.5rem; margin-bottom: 8px; }
+        .app-card p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; margin-bottom: 32px; flex-grow: 1; }
+
+        .app-link {
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+        }
+
+        /* Clean Footer */
+        footer {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .footer-text { font-size: 0.75rem; color: #333; letter-spacing: 1px; font-weight: 700; text-transform: uppercase; }
+
+        /* Tablet & Mobile Specific Adjustments */
+        @media (max-width: 600px) {
+            .container { padding: 0 20px; }
+            .hero { padding: 60px 0; }
+            .apps-grid { grid-template-columns: 1fr; }
+            .app-card { padding: 32px; }
+            nav { height: 70px; }
+        }
+
+        /* Android Browser Optimization */
+        @supports (-webkit-overflow-scrolling: touch) {
+            .app-card:active { background: #161616; transform: scale(0.98); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient"></div>
+
+    <div class="container">
+        <nav>
+            <a href="#" class="brand">
+                <div class="brand-icon"></div>
+                LIPON STUDIO
+            </a>
+            <a href="mailto:liponstudio.dev@gmail.com" class="nav-cta">GET IN TOUCH</a>
+        </nav>
+
+        <section class="hero">
+            <h1>Engineered <br>for Android.</h1>
+            <p>We build high-performance mobile tools that prioritize speed, offline reliability, and absolute privacy.</p>
+        </section>
+
+        <section class="apps-grid">
+            <!-- Qode -->
+            <a href="https://play.google.com/store/apps/details?id=com.lipon.qode" class="app-card">
+                <div class="app-icon">Q</div>
+                <h3>Qode: Secret Codes</h3>
+                <p>The definitive offline master-database for device secrets, USSD protocols, and mobile engineering insights.</p>
+                <div class="app-link">GET IT ON PLAY STORE &rarr;</div>
+            </a>
+
+            <!-- Next Project -->
+            <div class="app-card" style="border-style: dashed; opacity: 0.4;">
+                <div class="app-icon" style="background: transparent; border: 1px dashed var(--border);">+</div>
+                <h3>Project Alpha</h3>
+                <p>A new concept in system optimization and productivity. Launching late 2026.</p>
+                <div class="app-link" style="color: #444;">DEVELOPING</div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-text">LIPON STUDIO &copy; 2026 &bull; PRECISION TOOLING</div>
+        </footer>
+    </div>
+
+</body>
+</html>
